@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import javax.swing.*;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +21,17 @@ public class Application {
         Application app = new Application();
         app.run();
     }
+
+    private Department getDepartmentByName(String name){
+        Department correctDepartment = null;
+        for (Department department: departments) {
+            if (department.getName().equals(name)){
+            correctDepartment = department;
+            }
+        }
+        return correctDepartment;
+    }
+
 
     private void run() {
         // create some departments
@@ -84,12 +96,12 @@ public class Application {
         deanJohnson.setLastName("Johnson");
         deanJohnson.setEmail("djohnson@teams.com");
         deanJohnson.setSalary(60000);
-        deanJohnson.setDepartment(departments.get(2));
+        deanJohnson.setDepartment(getDepartmentByName("Engineering"));
         deanJohnson.setHireDate(today);
         employees.add(deanJohnson);
-        Employee angieSmith = new Employee(2, "Angie", "Smith", "asmith@teams.com", departments.get(2), today);
+        Employee angieSmith = new Employee(2, "Angie", "Smith", "asmith@teams.com", getDepartmentByName("Engineering"), today);
         employees.add(angieSmith);
-        Employee margaretThompson = new Employee(3, "Margaret", "Thompson", "mthompson@teams.com", departments.get(0), today);
+        Employee margaretThompson = new Employee(3, "Margaret", "Thompson", "mthompson@teams.com", getDepartmentByName("Marketing"), today);
         employees.add(margaretThompson);
     }
 
