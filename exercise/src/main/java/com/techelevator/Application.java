@@ -127,7 +127,6 @@ public class Application {
             }
         }
         projects.put("TEams", teamsPms);
-        System.out.println("Start Date: " + teamsPms.getStartDate() + ", Due Date: " + teamsPms.getDueDate());
     }
 
     /**
@@ -141,7 +140,6 @@ public class Application {
             }
         }
         projects.put("Marketing Landing Page", marketingLp);
-        System.out.println("Start Date: " + marketingLp.getStartDate() + ", Due Date: " + marketingLp.getDueDate());
     }
 
     /**
@@ -151,6 +149,7 @@ public class Application {
         System.out.println("\n------------- PROJECTS ------------------------------");
         for (Map.Entry<String, Project> project : projects.entrySet()) {
             System.out.println(project.getKey() + ": " + project.getValue().getTeamMembers().size());
+            System.out.println("Start Date: " + project.getValue().getStartDate() + ", Due Date: " + project.getValue().getDueDate());
         }
     }
 
